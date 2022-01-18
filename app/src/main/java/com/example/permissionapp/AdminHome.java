@@ -1,0 +1,41 @@
+package com.example.permissionapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class AdminHome extends AppCompatActivity {
+private Button ap1, ap2;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_admin_home);
+        ap1= (Button)findViewById(R.id.aproveact);
+        ap1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNextApp1();
+            }
+        });
+        ap2= (Button)findViewById(R.id.viewact);
+        ap2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNextApp2();
+            }
+        });
+    }
+
+    private void openNextApp2() {
+        Intent intent = new Intent(this, ApproveAppl.class);
+        startActivity(intent);
+    }
+
+    private void openNextApp1() {
+        Intent intent = new Intent(this, ViewApplication.class);
+        startActivity(intent);
+    }
+}
