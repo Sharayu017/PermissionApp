@@ -19,9 +19,9 @@
 
     <Button
         android:id="@+id/approve_apli"
-        android:layout_width="226dp"
+        android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:text="@string/approve_application"
+        android:text="Previous Applications"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

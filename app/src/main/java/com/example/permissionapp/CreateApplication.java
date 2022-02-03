@@ -15,10 +15,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -31,12 +31,15 @@ import java.util.Map;
 
 public class CreateApplication extends AppCompatActivity {
     DatePickerDialog picker; //for calender
-    EditText name, prn, subject, desc, sdt, edt;
+    EditText name, prn, subject, desc, sdt, edt,email;
     Button b1;
     Spinner tm1,tm2; //combobox for time
     Calendar myCalendar= Calendar.getInstance();
     FirebaseFirestore fs = FirebaseFirestore.getInstance();
+    FirebaseAuth fa= FirebaseAuth.getInstance();
+    String u1 ;
 
+    //String upid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +53,8 @@ public class CreateApplication extends AppCompatActivity {
         tm1 = findViewById(R.id.Stime);
         tm2 = findViewById(R.id.Etime);
         b1= findViewById(R.id.sbutton);
+        email=findViewById(R.id.email);
+//u1=fa.getCurrentUser().getUid();
 //to get data from user
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,14 +67,15 @@ public class CreateApplication extends AppCompatActivity {
                 String s_edt= edt.getText().toString();
                 String s_tm1= tm1.getSelectedItem().toString();
                 String s_tm2= tm2.getSelectedItem().toString();
-
-                if(TextUtils.isEmpty(s_name) || TextUtils.isEmpty(s_prn) || TextUtils.isEmpty(s_subject)|| TextUtils.isEmpty(s_desc)|| TextUtils.isEmpty(s_sdt)|| TextUtils.isEmpty(s_edt) || TextUtils.isEmpty(s_tm1) || TextUtils.isEmpty(s_tm2))
+                String s_em= email.getText().toString();
+           //    String u =u1;
+                if(TextUtils.isEmpty(s_name) || TextUtils.isEmpty(s_prn) || TextUtils.isEmpty(s_subject)|| TextUtils.isEmpty(s_desc)|| TextUtils.isEmpty(s_sdt)|| TextUtils.isEmpty(s_edt) || TextUtils.isEmpty(s_tm1) || TextUtils.isEmpty(s_tm2)||TextUtils.isEmpty(s_em))
                 {
                     Toast.makeText(CreateApplication.this, "Please fill All the fields", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    saveApplication(s_name,s_prn,s_subject,s_desc,s_sdt,s_edt,s_tm1,s_tm2);
+                    saveApplication(s_name,s_prn,s_subject,s_desc,s_sdt,s_edt,s_tm1,s_tm2,s_em);
                 }
             }
         });
@@ -130,7 +136,7 @@ public class CreateApplication extends AppCompatActivity {
 
     }
 
-    private void saveApplication(String sname, String sprn, String ssubject, String sdesc, String ssdt, String sedt, String stm1, String stm2)
+    private void saveApplication(String sname, String sprn, String ssubject, String sdesc, String ssdt, String sedt, String stm1, String stm2, String em)
     {
         Map<String, String> application1 = new HashMap<>();
         application1.put("Name", sname);
@@ -141,25 +147,28 @@ public class CreateApplication extends AppCompatActivity {
         application1.put("ToD", sedt);
         application1.put("FromT", stm1);
         application1.put("ToT", stm2);
+        application1.put("Email",em);
 
+        //fs.collection("Permission").document(uuid).collection("appli").document().set(application1)
+        fs.collection("Permission").document( ).set(application1)
 
-        fs.collection("users").add(application1).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                Toast.makeText(CreateApplication.this, " Applied Successfully", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(CreateApplication.this,Apply.class);
-                startActivity(intent);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(CreateApplication.this, " Applied Successfully", Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(CreateApplication.this,Apply.class);
+                        startActivity(intent);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(CreateApplication.this, " Application Failed", Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(CreateApplication.this,Apply.class);
+                        startActivity(intent);
+                    }
+                });
 
-                Toast.makeText(CreateApplication.this, " Application Failed", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(CreateApplication.this,Apply.class);
-                startActivity(intent);
-
-            }
-        });
 
     }
 

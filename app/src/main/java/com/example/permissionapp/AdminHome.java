@@ -29,13 +29,13 @@ private Button ap1, ap2;
         });
     }
 
-    private void openNextApp2() {
-        Intent intent = new Intent(this, ApproveAppl.class);
+    private void openNextApp1() {
+        Intent intent = new Intent(this, AdminApproveApplications.class);
         startActivity(intent);
     }
 
-    private void openNextApp1() {
-        Intent intent = new Intent(this, ViewApplication.class);
+    private void openNextApp2() {
+        Intent intent = new Intent(this, AdminViewApplication.class);
         startActivity(intent);
     }
 }

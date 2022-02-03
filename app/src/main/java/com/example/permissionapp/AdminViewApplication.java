@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ViewApplication extends AppCompatActivity {
+public class AdminViewApplication extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_application);
+        setContentView(R.layout.activity_adin_view_application);
     }
 }
