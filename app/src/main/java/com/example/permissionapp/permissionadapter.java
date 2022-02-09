@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
-public class myadapter extends FirestoreRecyclerAdapter<model, myadapter.myviewholder>
+public class permissionadapter extends FirestoreRecyclerAdapter<modelpermission, permissionadapter.myviewholder>
 {
 
 
-    public myadapter(@NonNull FirestoreRecyclerOptions<model> options) {
+    public permissionadapter(@NonNull FirestoreRecyclerOptions<modelpermission> options) {
         super(options);
     }
 
@@ -28,16 +28,20 @@ public class myadapter extends FirestoreRecyclerAdapter<model, myadapter.myviewh
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull model model) {
-        holder.nametext.setText(model.getName());
-        holder.emailtext.setText(model.getEmail());
-        holder.prntext.setText(model.getPrn());
-        holder.subtext.setText(model.getSubject());
-        holder.nametext.setOnClickListener(new View.OnClickListener() {
+    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull modelpermission modelpermission) {
+        holder.nametext.setText(modelpermission.getName());
+        holder.emailtext.setText(modelpermission.getEmail());
+        holder.prntext.setText(modelpermission.getPrn());
+        holder.subtext.setText(modelpermission.getSubject());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.wrapper, new descfragment(model.getName(),model.getEmail(),model.getPrn(),model.getSubject(),model.getDescription(),model.getFromD(),model.getFromT(),model.getToD(),model.getToT())).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.wrapper,
+                        new descfragment(modelpermission.getName(), modelpermission.getEmail(), modelpermission.getPrn(),
+                                modelpermission.getSubject(), modelpermission.getDescription(), modelpermission.getFromD(),
+                                modelpermission.getFromT(), modelpermission.getToD(), modelpermission.getToT(),
+                                modelpermission.getStatus())).addToBackStack(null).commit();
             }
         });
     }

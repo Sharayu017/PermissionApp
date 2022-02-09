@@ -3,15 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/activity_adin_view_application.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/activity_admin_approve_application.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/activity_admin_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/activity_apply.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/activity_approve_appl.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/activity_approve_application.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/activity_create_application.xml" value="0.19845465636437576" />
         <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/activity_maps.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/activity_previous_application.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/activity_view_application.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/fragment_descfragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/fragment_adminsndfragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/fragment_adrecfragment.xml" value="0.23645833333333333" />
+        <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/fragment_advrecfragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/fragment_descfragment.xml" value="0.25" />
         <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/fragment_recfragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/sharayu/AndroidStudioProjects/PermissionApp/app/src/main/res/layout/singlerow.xml" value="0.25416666666666665" />
       </map>

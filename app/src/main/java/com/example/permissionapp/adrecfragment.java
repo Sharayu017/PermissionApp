@@ -1,3 +1,4 @@
+
 package com.example.permissionapp;
 
 import android.os.Bundle;
@@ -9,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
-public class recfragment extends Fragment {
+public class adrecfragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,18 +26,15 @@ public class recfragment extends Fragment {
     private String mParam1;
     private String mParam2;
     RecyclerView recview;
-    permissionadapter adapter;
-    FirebaseAuth fa= FirebaseAuth.getInstance();
-    //FirebaseFirestore fs= FirebaseFirestore.getInstance();
-        String uuid= fa.getCurrentUser().getUid();
-    public recfragment() {
+    adminadapter adapter;
+    public adrecfragment() {
         // Required empty public constructor
     }
 
 
     // TODO: Rename and change types and number of parameters
-    public static recfragment newInstance(String param1, String param2) {
-        recfragment fragment = new recfragment();
+    public static adrecfragment newInstance(String param1, String param2) {
+        adrecfragment fragment = new adrecfragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -57,21 +55,21 @@ public class recfragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_recfragment, container, false);
-        recview=(RecyclerView)view.findViewById(R.id.recview);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_adrecfragment, container, false);
+        recview=(RecyclerView)view.findViewById(R.id.arecview);
         recview.setLayoutManager(new LinearLayoutManager(getContext()));
-      //  DocumentReference docRef = fs.collection("Permission").document("uuid");
+
 
 
         FirestoreRecyclerOptions<modelpermission> options = new FirestoreRecyclerOptions.Builder<modelpermission>()
-                .setQuery(FirebaseFirestore.getInstance().collection("Permission").document(uuid).collection("appli"), modelpermission.class)
+                .setQuery(FirebaseFirestore.getInstance().collectionGroup("appli").whereEqualTo("Status","Pending"), modelpermission.class)
                 .build();
-        adapter=new permissionadapter(options);
+        adapter=new adminadapter(options);
         recview.setAdapter(adapter);
         return view;
-
     }
-    @Override
+
     public void onStart() {
         super.onStart();
         adapter.startListening();

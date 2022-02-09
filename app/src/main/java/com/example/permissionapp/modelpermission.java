@@ -1,12 +1,12 @@
 package com.example.permissionapp;
 
-public class model {
-    String Name, Email,Prn,Description,Subject,FromD,FromT,ToD,ToT;
+public class modelpermission {
+    String Name, Email,Prn,Description,Subject,FromD,FromT,ToD,ToT,Status,Uid,Docid;
 
-    public model() {
+    public modelpermission() {
     }
 
-    public model(String subject, String email, String name, String prn) {
+    public modelpermission(String subject, String email, String name, String prn) {
         this.Name = name;
         this.Email = email;
         this.Prn = prn;
@@ -14,7 +14,30 @@ public class model {
 
     }
 
-    public model(String name, String email, String prn,  String subject, String description,String fromD,  String fromT, String toD,String toT) {
+    public modelpermission(String name, String email, String prn, String description, String subject, String fromD, String fromT, String toD, String toT, String status, String uid, String docid) {
+        Name = name;
+        Email = email;
+        Prn = prn;
+        Description = description;
+        Subject = subject;
+        FromD = fromD;
+        FromT = fromT;
+        ToD = toD;
+        ToT = toT;
+        Status = status;
+        Uid = uid;
+        Docid = docid;
+    }
+
+    public String getUid() {
+        return Uid;
+    }
+
+    public void setUid(String uid) {
+        Uid = uid;
+    }
+
+    public modelpermission(String name, String email, String prn, String subject, String description, String fromD, String fromT, String toD, String toT) {
         Name = name;
         Email = email;
         Prn = prn;
@@ -24,6 +47,16 @@ public class model {
         ToD = toD;
         FromT = fromT;
         ToT = toT;
+    }
+
+
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
     }
 
     public String getSubject() {
@@ -98,4 +131,11 @@ public class model {
         Email = email;
     }
 
+    public String getDocid() {
+        return Docid;
+    }
+
+    public void setDocid(String docid) {
+        Docid = docid;
+    }
 }

@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
+
+
 public class Apply extends AppCompatActivity {
     Button c_button, a_button; //create and approve button
     @Override

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".descfragment">
+    tools:context=".adminsndfragment">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
@@ -19,7 +19,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:text=""
             android:textSize="18sp" />
 
         <TextView
@@ -147,10 +146,24 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/approvebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/t2holder"
+            android:layout_marginTop="361dp"
+            android:text="Approve" />
 
-
+        <Button
+            android:id="@+id/rejectbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/t2holder"
+            android:layout_marginLeft="102dp"
+            android:layout_marginTop="359dp"
+            android:layout_toRightOf="@id/approvebutton"
+            android:text="Reject" />
     </RelativeLayout>
-
 
 
 </FrameLayout>
